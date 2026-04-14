@@ -5,20 +5,29 @@ class Program
     static void Main(string[] args)
     {
         enterOption:
+        Console.ForegroundColor = ConsoleColor.Yellow;
         Console.WriteLine("========CALCULATOR========");
+        Console.ForegroundColor = ConsoleColor.Green;
         Console.WriteLine("SELECT AN OPTION");
+        Console.ForegroundColor = ConsoleColor.Magenta;
         Console.WriteLine("1: ADDITION");
         Console.WriteLine("2: SUBTRACTION");
         Console.WriteLine("3: MULTIPLICATION");
         Console.WriteLine("4: DIVISION");
+        Console.ResetColor();
         string add = "ADDITION";
         string sub = "SUBTRACTION";
         string mul = "MULTIPLICATION";
         string div = "DIVISION";
+        Console.ForegroundColor = ConsoleColor.Cyan;
         double num = double.Parse(Console.ReadLine());
+        Console.ResetColor();
         if (num != 1 && num != 2 && num != 3 && num != 4)
         {
             Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("You entered an Invalid Menu Option, Please try again!");
+            Console.ResetColor();
             goto enterOption;
         }
 
