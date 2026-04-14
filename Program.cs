@@ -1,8 +1,34 @@
-﻿using System;
+﻿using static System.Console;
 
 class Program
 {
     static void Main(string[] args)
+    {
+        RunClock();
+        //SimpleCalculator();
+    }
+
+    private static void RunClock()
+    {
+        startClock:
+        Clear();
+        
+        string currentTime = DateTime.Now.ToString("HH:mm:ss tt");
+        string clockUI = $"""
+                         ================ CURRENT TIME ==============   
+                         |                                          |
+                                       {currentTime}                
+                         |                                          |
+                         ============================================   
+                         """;
+        
+        WriteLine(clockUI);
+        Thread.Sleep(1000);
+       
+        goto startClock;
+        ReadLine();
+    }
+    private static void SimpleCalculator()
     {
         enterOption:
         Console.ForegroundColor = ConsoleColor.Yellow;
@@ -75,7 +101,8 @@ class Program
         }
         else if (opt == "4")
         {
-            Console.WriteLine($" {num1} / {num2} = {(num1 / num2):N0}");
+            double divResult = (num1 / num2);
+            Console.WriteLine($" {num1} / {num2} = {divResult:N}");
         }
 
 
