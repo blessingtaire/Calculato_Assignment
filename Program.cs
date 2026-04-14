@@ -20,9 +20,9 @@ class Program
         string mul = "MULTIPLICATION";
         string div = "DIVISION";
         Console.ForegroundColor = ConsoleColor.Cyan;
-        double num = double.Parse(Console.ReadLine());
+        string opt = Console.ReadLine() ?? "";
         Console.ResetColor();
-        if (num != 1 && num != 2 && num != 3 && num != 4)
+        if (opt != "1" && opt != "2" && opt != "3" && opt != "4")
         {
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.Red;
@@ -35,27 +35,23 @@ class Program
 
         Console.WriteLine("========CALCULATOR========");
         repeatOp:
-        if (num == 1)
+        if (opt == "1")
         {
             Console.WriteLine("Enter a number for " + add);
         }
-        else if (num == 2)
+        else if (opt == "2")
         {
             Console.WriteLine("Enter a number for " + sub);
         }
-        else if (num == 3)
+        else if (opt == "3")
         {
             Console.WriteLine("Enter a number for " + mul);
         }
-        else if (num == 4)
+        else if (opt == "4")
         {
             Console.WriteLine("Enter a number for " + div);
         }
-
-        else
-        {
-            Console.WriteLine("What Operation do you want to perform");
-        }
+        
 
         double num1 = double.Parse(Console.ReadLine());
         Console.WriteLine("Enter a Second Number");
@@ -64,47 +60,43 @@ class Program
         Console.Clear();
         Console.WriteLine("========CALCULATOR========");
 
-        if (num == 1)
+        if (opt == "1")
 
         {
-            Console.WriteLine($" {num1} + {num2} = {num1 + num2}");
+            Console.WriteLine($" {num1} + {num2} = {(num1 + num2):N0}");
         }
-        else if (num == 2)
+        else if (opt == "2")
         {
-            Console.WriteLine($" {num1} - {num2} = {num1 - num2}");
+            Console.WriteLine($" {num1} - {num2} = {(num1 - num2):N0}");
         }
-        else if (num == 3)
+        else if (opt == "3")
         {
-            Console.WriteLine($" {num1} * {num2} = {num1 * num2}");
+            Console.WriteLine($" {num1} * {num2} = {(num1 * num2):N0}");
         }
-        else if (num == 4)
+        else if (opt == "4")
         {
-            Console.WriteLine($" {num1} / {num2} = {num1 / num2}");
-        }
-        else
-        {
-            Console.WriteLine("You have entered a wrong number");
+            Console.WriteLine($" {num1} / {num2} = {(num1 / num2):N0}");
         }
 
 
         Console.WriteLine("Would you like to perform thesame operation?");
 
-        Console.WriteLine("Press 1 to perform the same operation");
-        Console.WriteLine("Press 0 to go to the Main Menu");
-        double nxtOp = double.Parse(Console.ReadLine());
+        Console.WriteLine("Press 1 to perform the same operation : ");
+        Console.WriteLine("Press 0 to go to the Calculator Main Menu : ");
+        Console.WriteLine("Press any key Exit the program : ");
+        string nxtOp = Console.ReadLine() ?? "";
         Console.Clear();
-        if (nxtOp == 1)
+        if (nxtOp == "1")
         {
             goto repeatOp;
         }
-        else if (nxtOp == 0)
+        else if (nxtOp == "0")
         {
             goto enterOption;
         }
         else
         {
-            Console.WriteLine("Enter an option");
-            goto enterOption;
+            Console.WriteLine("Exiting Program!!!");
         }
     }
 }
