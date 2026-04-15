@@ -5,17 +5,47 @@ class Program
     static void Main(string[] args)
     {
         int counter = 0;
+        bool forward = true;
         Write("Enter your name: ");
         string x = Console.ReadLine();
-        runAgain:
-        Console.Write(x[counter++]);
-        Thread.Sleep(500);
-        if (counter < x.Length)
+        Clear();
+        checkCondition:
+        if (forward)
         {
-            goto runAgain;
+            runForward:
+            Console.Write(x[counter++]);
+            Thread.Sleep(70);
+            if (counter < x.Length)
+            {
+                goto runForward;
+            }
+            else
+            {
+                forward = false;
+                goto checkCondition;
+            }
         }
+        else
+        {
+            runBackward:
+            Clear();
+            string str = x.Substring(0,--counter);
+            Console.Write(str);
+            Thread.Sleep(50);
+            if (counter > 0 )
+            {
+                goto runBackward;
+            }
+            else
+            {
+                forward = true;
+                goto checkCondition;
+            }
+        }
+
+
         ReadLine();
-        
+
         //
         enterOption:
         Console.ForegroundColor = ConsoleColor.Yellow;
@@ -64,7 +94,7 @@ class Program
         {
             Console.WriteLine("Enter a number for " + div);
         }
-        
+
 
         double num1 = double.Parse(Console.ReadLine());
         Console.WriteLine("Enter a Second Number");
