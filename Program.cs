@@ -4,6 +4,13 @@ class Program
 {
     static void Main(string[] args)
     {
+        string x = Console.ReadLine();
+        repeatx:
+        Console.WriteLine(x);
+       if(x = 20)
+           goto repeatx;
+        
+        
         enterOption:
         Console.ForegroundColor = ConsoleColor.Yellow;
         Console.WriteLine("========CALCULATOR========");
