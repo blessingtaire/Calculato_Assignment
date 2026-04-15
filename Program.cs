@@ -4,11 +4,6 @@ class Program
 {
     static void Main(string[] args)
     {
-        string x = Console.ReadLine();
-        repeatx:
-        Console.WriteLine(x);
-           goto repeatx;
-           
         enterOption:
         Console.ForegroundColor = ConsoleColor.Yellow;
         Console.WriteLine("========CALCULATOR========");
@@ -57,7 +52,7 @@ class Program
             Console.WriteLine("Enter a number for " + div);
         }
         
-/* var isValidNumber = int.TryParse(ReadLine(), out  int myNum);*/
+
         double num1 = double.Parse(Console.ReadLine());
         Console.WriteLine("Enter a Second Number");
         double num2 = double.Parse(Console.ReadLine());
@@ -72,16 +67,15 @@ class Program
         }
         else if (opt == "2")
         {
-            Console.WriteLine($" {num1} - {num2} = {(num1 - num2)}");
+            Console.WriteLine($" {num1} - {num2} = {(num1 - num2):N0}");
         }
         else if (opt == "3")
         {
             Console.WriteLine($" {num1} * {num2} = {(num1 * num2):N0}");
         }
         else if (opt == "4")
-        { 
-            var divNum = num1 / num2;
-            Console.WriteLine($" {num1} / {num2} = {divNum}");
+        {
+            Console.WriteLine($" {num1} / {num2} = {(num1 / num2):N0}");
         }
 
 
@@ -89,7 +83,7 @@ class Program
 
         Console.WriteLine("Press 1 to perform the same operation : ");
         Console.WriteLine("Press 0 to go to the Calculator Main Menu : ");
-        Console.WriteLine("Press any key to Exit the program : ");
+        Console.WriteLine("Press any key Exit the program : ");
         string nxtOp = Console.ReadLine() ?? "";
         Console.Clear();
         if (nxtOp == "1")
@@ -104,7 +98,5 @@ class Program
         {
             Console.WriteLine("Exiting Program!!!");
         }
-        //*write a program that calculate the binary of any base 10 number*/
-        //write a program that types any given number repeatedly for several number of time  write a digital clock //
     }
 }
