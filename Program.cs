@@ -1,16 +1,22 @@
-﻿using System;
+﻿using static System.Console;
 
 class Program
 {
     static void Main(string[] args)
     {
+        int counter = 0;
+        Write("Enter your name: ");
         string x = Console.ReadLine();
-        repeatx:
-        Console.WriteLine(x);
-       if(x = 20)
-           goto repeatx;
+        runAgain:
+        Console.Write(x[counter++]);
+        Thread.Sleep(500);
+        if (counter < x.Length)
+        {
+            goto runAgain;
+        }
+        ReadLine();
         
-        
+        //
         enterOption:
         Console.ForegroundColor = ConsoleColor.Yellow;
         Console.WriteLine("========CALCULATOR========");
