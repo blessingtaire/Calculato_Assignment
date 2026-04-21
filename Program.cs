@@ -27,7 +27,36 @@ class Program
             result = rem.ToString() + result;
             base10Num = (base10Num - (base10Num % base2)) / base2;
         } while (base10Num > 0);*/
-
+        int sum1To10 = 1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9 + 10;
+        WriteLine(sum1To10);
+        byte i = 1;
+        string emoji = """
+                        \__(0-0)__/ 
+                       """;
+        for (;;)
+        {
+            Thread.Sleep(60);
+            Clear();
+            if (i == 1)
+            {
+                Write("/ Processing...");
+                i++;
+            }
+            else if (i == 2)
+            {
+                Write("| Processing...");
+                i++;
+            }
+                
+            else if (i == 3)
+            {
+                Write("\\ Processing...");
+                i = 1;
+            }
+             
+        }
+            
+            
         while (base10Num > 0)
         {
             var rem = base10Num % base2;
