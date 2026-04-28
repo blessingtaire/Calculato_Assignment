@@ -25,6 +25,11 @@ class Program
         var v2 = double.Parse(ReadLine());
         var sum = AddNumbers(v1, v2);
         WriteLine($"Sum of {v1:N0} and {v2:N0} is {sum:N}");
+        sum = AddNumbers(10,20,30,29,30,40,58,90,100);
+        Console.WriteLine($"SUm is now : {sum}");
+        
+        
+        
     }
 
     static void DisplayMyOpayBalance()
@@ -43,7 +48,7 @@ class Program
         WriteLine(nameToPrint);
     }
 
-    static void PrintNameAndAge(string nameToPrint,int age)
+    static void PrintNameAndAge(string nameToPrint, int age)
     {
         WriteLine($"Name: {nameToPrint}, Age: {age}");
     }
@@ -52,6 +57,18 @@ class Program
     {
         return num1 + num2;
     }
+
+    static double AddNumbers2(double num1, double num2)
+    {
+        return num1 + num2;
+    }
+
+    static double AddNumbers(params double[] nums)
+    {
+        return nums.Sum();
+    }
+
+
     static double SubstractNumbers(double num1, double num2)
     {
         return num1 - num2;
