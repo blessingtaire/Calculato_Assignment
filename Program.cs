@@ -6,6 +6,16 @@ class Program
 {
     public static void Main()
     {
+        // 1. The Null-Coalescing Operator (??) && The Null-Conditional Operator (?.) 
+        string customerAccountNumberFromDatabase = null;
+        string myNull = customerAccountNumberFromDatabase ?? "0000000000";
+        if (myNull == null ) 
+        {
+            WriteLine("MyNull Variable is Null");
+            myNull = myNull?.Trim();
+        } 
+        WriteLine($"MyNull Variable is {myNull}");
+        return;
         BinaryToBaseTenConversion("1010"); 
         BinaryToBaseTenConversion("0000111100011"); 
         BinaryToBaseTenConversion("10S10");
