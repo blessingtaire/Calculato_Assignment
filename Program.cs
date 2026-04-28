@@ -44,8 +44,6 @@ class Program
          */
         
         
-        
-        
 // Do..Loop
         /*do
         {
@@ -64,12 +62,13 @@ class Program
         {
             if (i % 2 == 0)
             {
-                even+=($"{i},");
+                even+=($"{i},"); 
             }
 
             if (i % 2 > 0)
-            {
-                odd+=($"{i},");
+            { 
+                //continue;
+                odd+=($"{i},"); 
             }
         }
         even = even.TrimEnd(',');
