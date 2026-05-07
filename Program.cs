@@ -6,6 +6,19 @@ class Program
     public static void Main()
     {
         WriteLine("Hello World!");
+        string str = "I love Elephant";
+        var result = ReverseString(str);
+        WriteLine(result);
+       
+        result = ReverseString("Alfred Obialo");
+        WriteLine(result);
+        
+        result = ReverseString("James Okoye");
+        WriteLine(result);
+        
+        result = ReverseString("This is a very long text, hope you enjoy it?");
+        WriteLine(result);
+        return;
         char[] separator = { ',' };
         string name = "Alfred,        Chioma,     Blessing    , Okeke    ,     Chibuzor     ";
         
@@ -17,7 +30,7 @@ class Program
         Array.Sort(splittedNames,StringComparer.InvariantCultureIgnoreCase);
         var sortedNames = string.Join(", ", splittedNames);
         WriteLine($"Sorted names: {sortedNames}\nUnsorted Names : {name}");
-        return;
+        
 
         int[] studentAges;
         studentAges = new int[5];
@@ -84,6 +97,16 @@ class Program
         
     }
 
+    static string ReverseString(string str)
+    {
+        string rstr = "";
+        for (int i = 0; i < str.Length; i++)
+        {
+            rstr = str[i] + rstr;
+            
+        }
+        return rstr;
+    }
     static void DisplayMyOpayBalance()
     {
         WriteLine("My Opay Balance is NGN 67,000");
