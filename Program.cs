@@ -1,5 +1,4 @@
-﻿using System.Diagnostics;
-using System.Text.RegularExpressions;
+﻿using System.Text;
 using static System.Console;
 
 class Program
@@ -7,6 +6,59 @@ class Program
     public static void Main()
     {
         WriteLine("Hello World!");
+        char[] separator = { ',' };
+        string name = "Alfred,        Chioma,     Blessing    , Okeke    ,     Chibuzor     ";
+        
+        var splittedNames = name.Split(separator, StringSplitOptions.RemoveEmptyEntries);
+        for (int i = 0; i < splittedNames.Length; i++)
+        {
+            splittedNames[i] = splittedNames[i].Trim();
+        }
+        Array.Sort(splittedNames,StringComparer.InvariantCultureIgnoreCase);
+        var sortedNames = string.Join(", ", splittedNames);
+        WriteLine($"Sorted names: {sortedNames}\nUnsorted Names : {name}");
+        return;
+
+        int[] studentAges;
+        studentAges = new int[5];
+        
+        bool[] customerAgreementToTerms = new bool[5];
+        int ageMultiples = 5 , arrIndex = 0 , startingNumber = 15;
+        foreach (var age in studentAges )
+        {
+            if(arrIndex == 0)
+            {
+                studentAges[0] = startingNumber;
+            }
+            else
+            {
+                studentAges[arrIndex] = studentAges[arrIndex - 1] + ageMultiples;
+            }
+            WriteLine("Student Age: " + studentAges[arrIndex]);
+            arrIndex++;
+            
+        }
+
+        string[,] students = new string[3, 4];
+
+        students[0, 0] = "Reg No";
+        students[0, 1] = "First Name";
+        students[0, 2] = "Last Name";
+        students[0, 3] = "Age";
+        
+        var lwBound = students.GetLowerBound(0);
+        var upBound = students.GetUpperBound(0);
+        WriteLine($"Upper Bound: {upBound}, Lower Bound: {lwBound}");
+        
+        // Jagged Array
+        int[][] jagged = new int[4][]; 
+        jagged[0] = new int[2];
+        jagged[1] = new int[3];
+        jagged[2] = new int[5];
+        jagged[3] = new int[1];
+        
+        jagged[0] = new int[2];
+        return;
         DisplayMyOpayBalance();
         SumNumbers();
         // PrintName method Usage
