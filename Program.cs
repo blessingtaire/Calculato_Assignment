@@ -9,14 +9,26 @@ class Program
         string str = "Alfred Bryan Blessing Olive Charles ";
         var result = ReverseString(str);
         Console.WriteLine(result);
-        var strByte = UTF7Encoding.UTF8.GetBytes(str);
-        var hash = SHA256.Create().ComputeHash(strByte);
-        var hashString = BitConverter.ToString(hash).Replace("-", "");
-        var stringJoin = string.Join("", hash);
-        
-        
-        WriteLine($"String Join hash: {stringJoin}\nBitConverter.ToString function: {hashString}");
 
+        string[] names = ["Alfred", "Chijioke","John","Okoye" ,"John"] ;
+        string[] names_oldWay = new []{"Alfred", "Chijioke","John"} ;
+
+        names[1] = "David";
+        var index = names.IndexOf("John");
+        var index2 = names.IndexOf("Alice");
+        WriteLine($"Name: {names[index]}, at Index : {index} ==> {names[1]}, Index of Alice : {index2}");
+        string searchQuery = "John";
+        string replaceText = "Okeke";
+        string joinedNames = string.Join(", ",names);
+        while (names.IndexOf(searchQuery) > -1)
+        {
+            var myIndex = names.IndexOf(searchQuery);
+            names[myIndex] = replaceText;
+        }
+        string replacedJoinedNames = string.Join(", ",names);
+        
+        WriteLine(joinedNames);
+        WriteLine(replacedJoinedNames);
         return;
         char[] separator = { ',' };
         string name = "Alfred,        Chioma,     Blessing    , Okeke    ,     Chibuzor     ";
