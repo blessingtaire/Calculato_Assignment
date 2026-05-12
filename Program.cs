@@ -1,10 +1,23 @@
-﻿using System.Text;
-using static System.Console;
-using System.Security.Cryptography;
+﻿using static System.Console;
+using System.Collections;
 class Program
 {
     public static void Main()
     {
+        WriteLine("List, Dictionary and HashSet !");
+        var numbers = new List<int>(10);
+        numbers.Add(10);
+        numbers.Add(20);
+        numbers.Add(30);
+        numbers.AddRange( [40,19 ,50,100] );
+        
+        ForegroundColor = ConsoleColor.Yellow;
+        foreach (var n in numbers)
+        {
+            WriteLine($"Number is : {n}");
+        }
+        
+        return;
         WriteLine("Hello World!");
         string str = "Alfred Bryan Blessing Olive Charles ";
         var result = ReverseString(str);
