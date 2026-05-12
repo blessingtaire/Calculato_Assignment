@@ -1,5 +1,7 @@
 ﻿using static System.Console;
 using System.Collections;
+using NewProgram.StudentApp;
+
 class Program
 {
     public static void Main()
@@ -9,22 +11,75 @@ class Program
         numbers.Add(10);
         numbers.Add(20);
         numbers.Add(30);
-        numbers.AddRange( [40,19 ,50,100] );
-        
+        numbers.AddRange([40, 19, 50, 100]);
+
         ForegroundColor = ConsoleColor.Yellow;
         foreach (var n in numbers)
         {
             WriteLine($"Number is : {n}");
         }
+        // bool CanTransferFunds(string fromAccNo,string toAccNo, decimal amountToTransfer){}
+        // bool HasSufficientBalanceForTransfer(string fromAccNo,string toAccNo, decimal amountToTransfer){
+    //  }
+
+    Dictionary<string, decimal> accountBalance = new Dictionary<string, decimal>();
+
+        accountBalance.Add("00291920120", 78_000);
+        accountBalance.Add("90201923313", 478_000);
+        accountBalance.Add("99102822213", 618_000);
+
+        WriteLine(accountBalance["00291920120"]);
+        foreach (var bal in accountBalance)
+        {
+            WriteLine($"Account Number : {bal.Key}, has Balance of NGN {bal.Value:N}");
+        }
+
+        var studentData = new Dictionary<string, Student>();
+
+        Student s1 = new Student()
+        {
+            EmailAddress = "james@mail.com",
+            FirstName = "Jame",
+            LastName = "Okoye",
+            RegNo = "CSU/2026/001"
+        };
+        Student s2 = new Student()
+        {
+            EmailAddress = "linda@gmail.com",
+            FirstName = "Linda",
+            LastName = "Anim",
+            RegNo = "CSU/2026/005"
+        };
         
+        studentData.Add(s1.RegNo, s1);
+        studentData.Add(s2.RegNo, s2);
+
+        var dic = new Dictionary<int, int>()
+        {
+            {1,20},
+            {2,50},
+            {120,1000}
+        };
+
+        var studentEntries = new Dictionary<string, Student>
+        {
+            {s1.RegNo, s1},
+            {s2.RegNo, s2},
+        };
+        
+        foreach (var s in studentData)
+        {
+            WriteLine(s.Value);
+        }
+
         return;
         WriteLine("Hello World!");
         string str = "Alfred Bryan Blessing Olive Charles ";
         var result = ReverseString(str);
         Console.WriteLine(result);
 
-        string[] names = ["Alfred", "Chijioke","John","Okoye" ,"John"] ;
-        string[] names_oldWay = new []{"Alfred", "Chijioke","John"} ;
+        string[] names = ["Alfred", "Chijioke", "John", "Okoye", "John"];
+        string[] names_oldWay = new[] { "Alfred", "Chijioke", "John" };
 
         names[1] = "David";
         var index = names.IndexOf("John");
@@ -35,41 +90,43 @@ class Program
          *  Replace all token in an array with a new text / token
          * : using the Array.IndexOf and a while loop
          */
-        
+
         string searchQuery = "John";
         string replaceText = "Okeke";
-        string joinedNames = string.Join(", ",names);
+        string joinedNames = string.Join(", ", names);
         while (names.IndexOf(searchQuery) > -1)
         {
             var myIndex = names.IndexOf(searchQuery);
             names[myIndex] = replaceText;
         }
-        string replacedJoinedNames = string.Join(", ",names);
-        
+
+        string replacedJoinedNames = string.Join(", ", names);
+
         WriteLine(joinedNames);
         WriteLine(replacedJoinedNames);
         return;
         char[] separator = { ',' };
         string name = "Alfred,        Chioma,     Blessing    , Okeke    ,     Chibuzor     ";
-        
+
         var splittedNames = name.Split(separator, StringSplitOptions.RemoveEmptyEntries);
         for (int i = 0; i < splittedNames.Length; i++)
         {
             splittedNames[i] = splittedNames[i].Trim();
         }
-        Array.Sort(splittedNames,StringComparer.InvariantCultureIgnoreCase);
+
+        Array.Sort(splittedNames, StringComparer.InvariantCultureIgnoreCase);
         var sortedNames = string.Join(", ", splittedNames);
         WriteLine($"Sorted names: {sortedNames}\nUnsorted Names : {name}");
-        
+
 
         int[] studentAges;
         studentAges = new int[5];
-        
+
         bool[] customerAgreementToTerms = new bool[5];
-        int ageMultiples = 5 , arrIndex = 0 , startingNumber = 15;
-        foreach (var age in studentAges )
+        int ageMultiples = 5, arrIndex = 0, startingNumber = 15;
+        foreach (var age in studentAges)
         {
-            if(arrIndex == 0)
+            if (arrIndex == 0)
             {
                 studentAges[0] = startingNumber;
             }
@@ -77,9 +134,9 @@ class Program
             {
                 studentAges[arrIndex] = studentAges[arrIndex - 1] + ageMultiples;
             }
+
             WriteLine("Student Age: " + studentAges[arrIndex]);
             arrIndex++;
-            
         }
 
         string[,] students = new string[3, 4];
@@ -88,18 +145,18 @@ class Program
         students[0, 1] = "First Name";
         students[0, 2] = "Last Name";
         students[0, 3] = "Age";
-        
+
         var lwBound = students.GetLowerBound(0);
         var upBound = students.GetUpperBound(0);
         WriteLine($"Upper Bound: {upBound}, Lower Bound: {lwBound}");
-        
+
         // Jagged Array
-        int[][] jagged = new int[4][]; 
+        int[][] jagged = new int[4][];
         jagged[0] = new int[2];
         jagged[1] = new int[3];
         jagged[2] = new int[5];
         jagged[3] = new int[1];
-        
+
         jagged[0] = new int[2];
         return;
         DisplayMyOpayBalance();
@@ -120,11 +177,8 @@ class Program
         var v2 = double.Parse(ReadLine());
         var sum = AddNumbers(v1, v2);
         WriteLine($"Sum of {v1:N0} and {v2:N0} is {sum:N}");
-        sum = AddNumbers(10,20,30,29,30,40,58,90,100);
+        sum = AddNumbers(10, 20, 30, 29, 30, 40, 58, 90, 100);
         Console.WriteLine($"SUm is now : {sum}");
-        
-        
-        
     }
 
     static string ReverseString(string str)
@@ -133,10 +187,11 @@ class Program
         for (int i = 0; i < str.Length; i++)
         {
             rstr = str[i] + rstr;
-            
         }
+
         return rstr;
     }
+
     static void DisplayMyOpayBalance()
     {
         WriteLine("My Opay Balance is NGN 67,000");
