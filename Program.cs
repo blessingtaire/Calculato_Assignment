@@ -1,23 +1,22 @@
 ﻿using System.Text;
 using static System.Console;
-
+using System.Security.Cryptography;
 class Program
 {
     public static void Main()
     {
         WriteLine("Hello World!");
-        string str = "I love Elephant";
+        string str = "Alfred Bryan Blessing Olive Charles ";
         var result = ReverseString(str);
-        WriteLine(result);
-       
-        result = ReverseString("Alfred Obialo");
-        WriteLine(result);
+        Console.WriteLine(result);
+        var strByte = UTF7Encoding.UTF8.GetBytes(str);
+        var hash = SHA256.Create().ComputeHash(strByte);
+        var hashString = BitConverter.ToString(hash).Replace("-", "");
+        var stringJoin = string.Join("", hash);
         
-        result = ReverseString("James Okoye");
-        WriteLine(result);
         
-        result = ReverseString("This is a very long text, hope you enjoy it?");
-        WriteLine(result);
+        WriteLine($"String Join hash: {stringJoin}\nBitConverter.ToString function: {hashString}");
+
         return;
         char[] separator = { ',' };
         string name = "Alfred,        Chioma,     Blessing    , Okeke    ,     Chibuzor     ";
