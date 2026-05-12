@@ -17,6 +17,12 @@ class Program
         var index = names.IndexOf("John");
         var index2 = names.IndexOf("Alice");
         WriteLine($"Name: {names[index]}, at Index : {index} ==> {names[1]}, Index of Alice : {index2}");
+        /*
+         *
+         *  Replace all token in an array with a new text / token
+         * : using the Array.IndexOf and a while loop
+         */
+        
         string searchQuery = "John";
         string replaceText = "Okeke";
         string joinedNames = string.Join(", ",names);
