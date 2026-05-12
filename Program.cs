@@ -13,6 +13,24 @@ class Program
         numbers.Add(30);
         numbers.AddRange([40, 19, 50, 100]);
 
+        /// <summary>
+        ///  Multiple LINQ operations can be performed on a collection, and the result of one operation can be used as the input for another operation. This allows you to create complex queries and transformations on your data in a concise and readable manner.
+        /// </summary>
+        /// <returns></returns>
+        
+        var multiplesOfTwo = numbers.Select(x => x * 2);
+        foreach (var two in multiplesOfTwo){
+            WriteLine(two);
+        }
+        var numsLess20  = numbers.Where(x =>x < 20);
+        foreach (var n in numsLess20)
+        {
+            WriteLine($"Number less than 20 is : {n}");
+        }
+        var sumNumbersLess20 = numbers
+                            .Where(x =>x <20)
+                            .Sum();
+        WriteLine($"Sum of nums less than 20: {sumNumbersLess20}");
         ForegroundColor = ConsoleColor.Yellow;
         foreach (var n in numbers)
         {
