@@ -68,7 +68,16 @@ class Program
             LastName = "Anim",
             RegNo = "CSU/2026/005"
         };
+        Student s3 = new Student()
+        {
+            EmailAddress = "linda@gmail.com",
+            FirstName = "Linda",
+            LastName = "Anim",
+            RegNo = "CSU/2026/008"
+        };
+      
         
+                
         studentData.Add(s1.RegNo, s1);
         studentData.Add(s2.RegNo, s2);
 

@@ -2,7 +2,7 @@ namespace NewProgram.StudentApp;
 
 public class Student
 {
-    public string RegNo { get; set; }
+    public required string RegNo { get; set; }
     public string FirstName { get; set; }
     public string LastName { get; set; }
     public string EmailAddress { get; set; }
