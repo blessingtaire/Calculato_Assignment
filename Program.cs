@@ -73,7 +73,7 @@ class Program
             EmailAddress = "linda@gmail.com",
             FirstName = "Linda",
             LastName = "Anim",
-            RegNo = "CSU/2026/008"
+            RegNo = "CSU/2026/008",
         };
       
         
@@ -98,7 +98,14 @@ class Program
         {
             WriteLine(s.Value);
         }
-
+        ResetColor();
+        StudentDepartment sd = new StudentDepartment();
+        sd.Name = "Science";
+        sd.Students.AddRange( [s1,s2,s3]);
+        
+        WriteLine(sd.Name);
+        sd.ShowAllStudents();
+        
         return;
         WriteLine("Hello World!");
         string str = "Alfred Bryan Blessing Olive Charles ";
