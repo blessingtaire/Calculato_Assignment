@@ -6,6 +6,16 @@ class Program
 {
     public static void Main()
     {
+        WriteLine("Testing Sort!");
+
+        var sortedData = SimpleSort.Sort(10,40,8,2,234,190,43,4,546,45,7,6,45,5,43,3,49,4,35,890,5,55,65,6453,43,3,3,32);
+
+        for (int i = 0; i < sortedData.Length; i++)
+        {
+            WriteLine(sortedData[i]);
+        }
+
+        return; 
         WriteLine("List, Dictionary and HashSet !");
         var numbers = new List<int>(10);
         numbers.Add(10);
@@ -104,7 +114,21 @@ class Program
         sd.Students.AddRange( [s1,s2,s3]);
         
         WriteLine(sd.Name);
-        sd.ShowAllStudents();
+        CancellationTokenSource cts =   new CancellationTokenSource(TimeSpan.FromMilliseconds(2000));
+        try
+        {
+            sd.ShowAllStudents(cts.Token);
+        }
+        catch (OperationCanceledException)
+        {
+            WriteLine($"Your request to List all Students in the {sd.Name} Department, was Cancelled!");
+        }
+        catch (Exception e)
+        {
+            WriteLine(e.Message);
+            
+        }
+       
         
         return;
         WriteLine("Hello World!");
