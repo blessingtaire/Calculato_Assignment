@@ -19,9 +19,8 @@ public class SimpleSort
                 {
                     if (x > y) //5 > 4
                     {
-                        int temp = x;
                         arr[i] = y; // newArr[0] = 4
-                        arr[i < arr.Length - 1 ? i + 1 : i] = temp; // 5
+                        arr[i < arr.Length - 1 ? i + 1 : i] = x; // 5
                     }
                 }
                 else

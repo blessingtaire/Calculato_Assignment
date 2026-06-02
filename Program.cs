@@ -6,6 +6,37 @@ class Program
 {
     public static void Main()
     {
+        string baseUrl = "http://api.todos.effectivonline.com/todos";
+        var client = new HttpClient();
+        client.BaseAddress = new Uri(baseUrl);
+        var data =  client.GetStringAsync("").Result;
+        Console.WriteLine(data);
+        // array  to represent a chess board;
+        string[,] chessBoard = new string[8, 8];
+        WriteLine($" Array Length : {chessBoard.Length}," +
+                  $"\nUpperBound of Index Zero : {chessBoard.GetUpperBound(0)}" +
+                  $"\nLowerBound of Index Zero : {chessBoard.GetLowerBound(0)}" +
+                  $"\nUpperBound of Index 1 : {chessBoard.GetUpperBound(1)}" +
+                  $"\nLowerBound of Index 1 : {chessBoard.GetLowerBound(1)}" +
+                  $"\nGetLength (0): {chessBoard.GetLength(0)}" +
+                  $"\nGetLength (1) : {chessBoard.GetLength(1)}");
+        
+        // x,y
+        // x = 0, y=0
+        for (int i = 0; i < chessBoard.GetLength(0); i++)
+        {
+            for (int y = 0; y < chessBoard.GetLength(1); y++)
+            {
+                chessBoard[i, y] = y % 2 > 0 ? $"White {i},{y}" :$"Black {i},{y}";
+            }
+        }
+
+        foreach (var s in chessBoard)
+        {
+            Write($"| {s} ");
+        }
+        
+        return;
         WriteLine("Testing Sort!");
 
         var sortedData = SimpleSort.Sort(10,40,8,2,234,190,43,4,546,45,7,6,45,5,43,3,49,4,35,890,5,55,65,6453,43,3,3,32);
