@@ -79,7 +79,6 @@ public class PlayGame
         actor.Fight(enemy);
         actor.Fight(enemy);
         actor.Fight(enemy);
-        actor.Fight(enemy);
     }
 }
 
